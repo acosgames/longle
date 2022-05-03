@@ -5,10 +5,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-
-client.bundle.js
-server.bundle.js
-client.bundle.dev.js
+builds/client/
+builds/server/
 
 # Runtime data
 pids
