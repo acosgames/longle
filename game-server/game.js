@@ -1,4 +1,3 @@
-
 import cup from './acosg';
 
 let questions = cup.database();
@@ -22,10 +21,7 @@ let defaultGame = {
     events: {}
 }
 
-
-
 class PopTrivia {
-
     onNewGame(action) {
         cup.setGame(defaultGame);
         this.startGame();
@@ -40,10 +36,7 @@ class PopTrivia {
     }
 
     onSkip(action) {
-
         let state = cup.state();
-        let stage = state.stage || 0;
-
         switch (state.stage) {
             case 0:
                 this.endOfRound();
@@ -52,8 +45,6 @@ class PopTrivia {
                 this.nextRound();
                 break;
         }
-        //if (cup.reachedTimelimit(action))
-
     }
 
     nextQuestion() {
@@ -71,7 +62,6 @@ class PopTrivia {
         cup.setTimelimit(6);
 
         let question = questions[state._qid];
-        // cup.event('a', question.a);
         state.a = question.a;
     }
 
@@ -102,7 +92,6 @@ class PopTrivia {
 
         //new player defaults
         user.score = 0;
-
     }
 
 
@@ -110,7 +99,6 @@ class PopTrivia {
     onLeave(action) {
         let id = action.user.id;
         let players = cup.players();
-        // let playerList = cup.playerList();
         let player = players[id];
         if (player) {
             player.score -= 1000;
@@ -122,22 +110,13 @@ class PopTrivia {
             if (!players[pid].forfeit)
                 activeCount++;
         }
-        // if (players[id]) {
-        //     delete players[id];
-        // }
+
         if (activeCount <= 1) {
             this.processWinners();
         }
     }
 
     onPick(action) {
-
-        // if (cup.reachedTimelimit(action)) {
-        //     this.nextRound();
-        //     cup.log("Pick passed timelimit, getting new round");
-        //     return;
-        // }
-
         let state = cup.state();
         let player = cup.players(action.user.id);
 
@@ -178,11 +157,6 @@ class PopTrivia {
         let players = cup.players();
         for (var id in players) {
             let player = players[id];
-            // player.choices = player.choices || [];
-            // if (typeof player._choice !== 'undefined' && player._choice != null)
-            //     player.choices.push(player._choice);
-            // else
-            //     player.choices.push(-1);
             player.choice = -1;
         }
     }
@@ -221,7 +195,6 @@ class PopTrivia {
 
     processWinners() {
         let playerList = [];
-        let playerIds = [];
         let players = cup.players();
 
         //add player id into the player data

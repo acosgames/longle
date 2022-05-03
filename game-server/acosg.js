@@ -18,15 +18,8 @@ class ACOSG {
         this.currentAction = null;
 
         this.isNewGame = false;
-        // this.markedForDelete = false;
         this.defaultSeconds = 15;
-        // this.nextTimeLimit = -1;
         this.kickedPlayers = [];
-
-        // if (!this.nextGame || !this.nextGame.rules || Object.keys(this.nextGame.rules).length == 0) {
-        //     this.isNewGame = true;
-        //     this.error('Missing Rules');
-        // }
 
         if (this.nextGame) {
             if (!('timer' in this.nextGame)) {
@@ -40,9 +33,7 @@ class ACOSG {
                 this.nextGame.players = {};
             }
 
-            //if (!('prev' in this.nextGame)) {
             this.nextGame.prev = {};
-            //}
 
             if (!('next' in this.nextGame)) {
                 this.nextGame.next = {};
@@ -60,18 +51,6 @@ class ACOSG {
     }
 
     on(type, cb) {
-
-        // if (type == 'newgame') {
-        //     //if (this.isNewGame) {
-        //     this.currentAction = this.actions[0];
-        //     if (this.currentAction.type == '')
-        //         cb(this.actions[0]);
-        //     this.isNewGame = false;
-        //     //}
-
-        //     return;
-        // }
-
         for (var i = 0; i < this.actions.length; i++) {
             if (this.actions[i].type == type) {
                 this.currentAction = this.actions[i];
@@ -200,11 +179,6 @@ class ACOSG {
     clearEvents() {
         this.nextGame.events = {};
     }
-    // events(name) {
-    //     if (typeof name === 'undefined')
-    //         return this.nextGame.events;
-    //     this.nextGame.events.push(name);
-    // }
 }
 
 export default new ACOSG();

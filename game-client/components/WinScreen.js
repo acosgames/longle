@@ -41,11 +41,6 @@ class WinScreen extends Component {
     }
 
     render() {
-
-        let events = fs.get('events');
-
-
-        speechSynthesis.cancel();
         let winnerList = this.processWinners();
 
         return (

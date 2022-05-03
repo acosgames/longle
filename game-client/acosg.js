@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import fs from 'flatstore';
-import flatstore from 'flatstore';
 
 fs.set('local', {});
 fs.set('state', {});
@@ -13,11 +12,7 @@ fs.set('events', {});
 var needsReset = false;
 var timerHandle = 0;
 export function GameLoader(props) {
-
-
-
     const timerLoop = (cb) => {
-
         if (cb)
             cb();
 
@@ -58,7 +53,6 @@ export function GameLoader(props) {
         if (message.timer) {
             fs.set('timer', message.timer);
         }
-
         if (message.players) {
             fs.set('players', message.players);
         }
@@ -68,10 +62,6 @@ export function GameLoader(props) {
         if (message.next) {
             fs.set('next', message.next);
         }
-        // if (message.prev) {
-        //     fs.set('prev', message.prev);
-        // }
-
         if (message.state) {
             fs.set('state', message.state);
         }
@@ -113,8 +103,6 @@ export function GameLoader(props) {
 
     }
 
-
-
     useEffect(() => {
         console.log("ATTACHING TO MESSAGE EVENT");
         window.addEventListener('message', onMessage, false);
@@ -123,7 +111,6 @@ export function GameLoader(props) {
 
         send('ready', true);
     }, []);
-
 
     let Comp = props.component;
     return (<Comp></Comp>)

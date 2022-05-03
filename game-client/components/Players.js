@@ -44,7 +44,6 @@ class Players extends Component {
     }
 
     render() {
-
         let events = fs.get('events');
         let isGameover = events?.gameover;
 

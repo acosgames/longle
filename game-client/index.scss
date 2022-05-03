@@ -23,12 +23,6 @@ body {
   background-color: #fff;
 }
 
-.userActivation {
-  width: 100%;
-  height: 100%;
-  z-index: 99;
-  position: absolute;
-}
 h5 {
   font-size: 1.5rem;
 }
@@ -49,27 +43,6 @@ h5 {
 
 .relative {
   position: relative;
-}
-
-.playButton {
-  height: 20vh;
-  width: 60vh;
-  border: 0;
-  font-size: 10vh;
-  font-weight: bold;
-
-  background-color: rgb(255, 255, 255);
-  box-shadow: 0 0px 1px rgba(0, 0, 0, 0.05), 0 0px 2px rgba(0, 0, 0, 0.05),
-    0 3px 0px rgba(0, 0, 0, 0.05), 0 0px 8px rgba(0, 0, 0, 0.05),
-    0 0px 16px rgba(0, 0, 0, 0.05);
-
-  transition: box-shadow 0.3s ease-in;
-}
-
-.playButton:active {
-  box-shadow: 0 0px 1px rgba(0, 0, 0, 0.02), 0 0px 2px rgba(0, 0, 0, 0.02),
-    0 0px 4px rgba(0, 0, 0, 0.02), 0 0px 8px rgba(0, 0, 0, 0.02),
-    0 0px 16px rgba(0, 0, 0, 0.02);
 }
 
 .question {
